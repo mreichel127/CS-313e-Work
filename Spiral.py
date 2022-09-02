@@ -2,7 +2,7 @@
 
 #  Description: created a number spiral and added certain values around a given number
 
-#  Student Name: Madeline Reichel - test
+#  Student Name: Madeline Reichel 
 
 #  Student UT EID: mr57723
 
