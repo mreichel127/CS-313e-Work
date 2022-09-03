@@ -63,8 +63,8 @@ def sum_adjacent_numbers(spiral, newInput):
     for i in range(len(spiral)):
         for j in range(len(spiral[i])):
             if newInput == spiral[i][j]: #finds the location of the input number in the spiral
-                r = i #sets the row of the input number to variable r
-                c = j #sets the column of the input number to variable c
+                r = i #sets the row location of the input number to variable r
+                c = j #sets the column location of the input number to variable c
     sumOutput = 0
     for a in range(r-1, r+2):
         for b in range(c-1, c+2):
