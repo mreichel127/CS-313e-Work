@@ -77,7 +77,7 @@ def sum_adjacent_numbers(spiral, newInput):
     return int(sumOutput) - int(newInput) 
     
 def main(): 
-    file = sys.stdin.read() #reads the input file and adds it to a single file list seperated by commas
+    file = sys.stdin.read() #reads the input file and adds it to a single list seperated by commas
     fileList = file.split("\n")
     fileList.remove('')
     
