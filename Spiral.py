@@ -76,7 +76,7 @@ def sum_adjacent_numbers(spiral, newInput): #jen comment
                     sumOutput += 0
     return int(sumOutput) - int(newInput)
     
-def main(): #jen comment
+def main(): #jen comments
     file = sys.stdin.read()
     fileList = file.split("\n")
     fileList.remove('')
