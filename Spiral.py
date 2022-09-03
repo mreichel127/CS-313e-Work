@@ -57,33 +57,33 @@ def create_spiral(n):
 #         numbers adjacent to n in the spiral
 #         if n is outside the range return 0
 
-def sum_adjacent_numbers(spiral, newInput): #jen comment
+def sum_adjacent_numbers(spiral, newInput):
     r = 0
     c = 0
     for i in range(len(spiral)):
         for j in range(len(spiral[i])):
-            if newInput == spiral[i][j]: 
-                r = i
-                c = j
+            if newInput == spiral[i][j]: #finds the location of the input number in the spiral
+                r = i #sets the row of the input number to variable r
+                c = j #sets the column of the input number to variable c
     sumOutput = 0
     for a in range(r-1, r+2):
         for b in range(c-1, c+2):
-            if a == -1 or b == -1:
+            if a == -1 or b == -1: #uses exception handling to skip out-of-range errors; deals with numbers on the edge of the spiral and numbers at the corner of the spiral
                 continue
             try:
-                sumOutput += spiral[a][b]
+                sumOutput += spiral[a][b] #sums up the numbers that are adjacent to the input number
             except: 
-                    sumOutput += 0
-    return int(sumOutput) - int(newInput)
+                    sumOutput += 0 #idk what to put for here cause I thought all we had to do was pass 
+    return int(sumOutput) - int(newInput) 
     
-def main(): #jen comments
-    file = sys.stdin.read()
+def main(): 
+    file = sys.stdin.read() #reads the input file and adds it to a single file list seperated by commas
     fileList = file.split("\n")
     fileList.remove('')
     
-    spiral = create_spiral(int(fileList[0]))
-    for num in range(1, len(fileList)):
-        print(sum_adjacent_numbers(spiral, int(fileList[num])))
+    spiral = create_spiral(int(fileList[0])) #creates the spiral using the first integer in the input file which determines the dimensions of the file
+    for num in range(1, len(fileList)): #loops through the rest of the integers in the input file, skipping the dimension input number
+        print(sum_adjacent_numbers(spiral, int(fileList[num]))) #prints out the summation of the adjacent numbers 
         
 if __name__ == "__main__":
     main()
