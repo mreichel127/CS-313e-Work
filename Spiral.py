@@ -57,7 +57,7 @@ def create_spiral(n):
 #         numbers adjacent to n in the spiral
 #         if n is outside the range return 0
 
-def sum_adjacent_numbers(spiral, newInput):
+def sum_adjacent_numbers(spiral, newInput): #jen comment
     r = 0
     c = 0
     for i in range(len(spiral)):
@@ -76,9 +76,7 @@ def sum_adjacent_numbers(spiral, newInput):
                     sumOutput += 0
     return int(sumOutput) - int(newInput)
     
-
-def main():
-
+def main(): #jen comment
     file = sys.stdin.read()
     fileList = file.split("\n")
     fileList.remove('')
@@ -86,5 +84,6 @@ def main():
     spiral = create_spiral(int(fileList[0]))
     for num in range(1, len(fileList)):
         print(sum_adjacent_numbers(spiral, int(fileList[num])))
+        
 if __name__ == "__main__":
     main()
