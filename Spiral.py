@@ -81,7 +81,7 @@ def main():
     fileList = file.split("\n")
     fileList.remove('')
     
-    spiral = create_spiral(int(fileList[0])) #creates the spiral using the first integer in the input file which determines the dimensions of the file
+    spiral = create_spiral(int(fileList[0])) #creates the spiral using the first integer in the input file which determines the dimensions of the spiral
     for num in range(1, len(fileList)): #loops through the rest of the integers in the input file, skipping the dimension input number
         print(sum_adjacent_numbers(spiral, int(fileList[num]))) #prints out the summation of the adjacent numbers 
         
