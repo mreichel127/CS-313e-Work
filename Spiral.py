@@ -25,20 +25,20 @@
 import sys
 
 def create_spiral(n):
-    newList = [[0] * n for c in range(n)] #create empty list
+    newList = [[0] * n for c in range(n)] #create empty 2D list
     newList[n//2][n//2] = 1
     r = n//2
     c = n//2
     num = 1
-    for a in range(1,n):
-       for y in range(a): 
+    for a in range(1,n): #add numbers into the spiral 
+       for y in range(a): #change column index on sprial and adds numbers to spiral 
            num += 1
            if a % 2 == 1:
                c += 1
            else:
                c -= 1
            newList[r][c] = num
-       for x in range(a): 
+       for x in range(a): #changes row index and adds numbers to spiral based on new index
            num += 1 
            if a % 2 == 1:
                r += 1
@@ -46,7 +46,7 @@ def create_spiral(n):
                r -= 1 
            newList[r][c] = num
     c = 0
-    for a in range(n-1):
+    for a in range(n-1): #adds numbers on the top row of the spiral 
         num += 1
         c += 1
         newList[r][c] = num
@@ -63,17 +63,17 @@ def sum_adjacent_numbers(spiral, newInput):
     for i in range(len(spiral)):
         for j in range(len(spiral[i])):
             if newInput == spiral[i][j]: #finds the location of the input number in the spiral
-                r = i #sets the row location of the input number to variable r
-                c = j #sets the column location of the input number to variable c
+                r = i 
+                c = j 
     sumOutput = 0
     for a in range(r-1, r+2):
         for b in range(c-1, c+2):
-            if a == -1 or b == -1: #uses exception handling to skip out-of-range errors; deals with numbers on the edge of the spiral and numbers at the corner of the spiral
+            if a == -1 or b == -1: #uses exception handling to skip out-of-range errors
                 continue
             try:
                 sumOutput += spiral[a][b] #sums up the numbers that are adjacent to the input number
-            except: 
-                    sumOutput += 0 #idk what to put for here cause I thought all we had to do was pass 
+            except: #ignore index that do not exist
+                    sumOutput += 0 
     return int(sumOutput) - int(newInput) 
     
 def main(): 
@@ -82,8 +82,8 @@ def main():
     fileList.remove('')
     
     spiral = create_spiral(int(fileList[0])) #creates the spiral using the first integer in the input file which determines the dimensions of the spiral
-    for num in range(1, len(fileList)): #loops through the rest of the integers in the input file, skipping the dimension input number
-        print(sum_adjacent_numbers(spiral, int(fileList[num]))) #prints out the summation of the adjacent numbers 
+    for num in range(1, len(fileList)): #loops through the rest of the integers in the input file to print sum of adjacent numbers
+        print(sum_adjacent_numbers(spiral, int(fileList[num])))
         
 if __name__ == "__main__":
     main()
